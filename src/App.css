@@ -23,7 +23,6 @@ body {
   gap: 1rem;
   flex-wrap: wrap;
   border: 1px solid black; */
-
   max-width: 1200px;
   padding-top: 100px;
   display: grid;
