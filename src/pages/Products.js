@@ -22,8 +22,13 @@ export default function Products() {
               <p>by {product.author}</p>
             </div>
             <div className="product-buttons">
-              <button>cart</button>
-              <button>wishlist</button>
+              <button>
+                <span class="front">cart</span>
+              </button>
+              <button>
+                {" "}
+                <span class="front">wishlist</span>
+              </button>
             </div>
           </div>
         );
