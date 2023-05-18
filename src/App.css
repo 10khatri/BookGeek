@@ -129,11 +129,29 @@ nav {
     grid-row-gap: 20px;
     grid-template-columns: repeat(3, 1fr);
   }
+  .nav-search-bar input {
+    width: 300px;
+  }
+  .nav-search-bar {
+    margin-left: 60px;
+  }
+  .nav-links a {
+    margin-right: 17px;
+  }
 }
 @media (max-width: 890px) {
   .product-container {
     grid-row-gap: 10px;
     grid-template-columns: repeat(2, 1fr);
+  }
+  .nav-search-bar input {
+    width: 200px;
+  }
+  .nav-search-bar {
+    margin-left: 30px;
+  }
+  .nav-links a {
+    margin-right: 10px;
   }
 }
 

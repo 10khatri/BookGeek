@@ -1,6 +1,7 @@
 import React from "react";
-import { products } from "../backend/db/products";
+import { ProductContext } from "../context/ProductContext";
 export default function Products() {
+  const { products } = React.useContext(ProductContext);
   console.log(products);
   return (
     <div className="product-container">
