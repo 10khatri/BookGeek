@@ -1,6 +1,7 @@
 import React from "react";
 import { products } from "../backend/db/products";
 import "../App.css";
+import { Modal } from "../Components/Dialog";
 export default function Home() {
   return (
     <>

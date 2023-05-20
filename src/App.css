@@ -250,3 +250,25 @@ nav {
 .book-data {
   margin-top: 3rem;
 }
+.login-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-form label {
+  display: block;
+  margin-top: 20px;
+}
+.login-form input {
+  width: 80%;
+  padding: 8px 16px;
+}
+.login-form button {
+  cursor: pointer;
+  margin-top: 20px;
+  display: block;
+  border: 1px solid #666;
+  padding: 8px 16px;
+}

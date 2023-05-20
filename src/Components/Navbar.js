@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 export default function Navbar() {
+  const { isLoggedIn, setIsLoggedIn } = React.useContext(AuthContext);
+
   return (
     <>
       <nav>
@@ -16,7 +19,8 @@ export default function Navbar() {
           <Link to="/products">All Products</Link>
           <Link to="/wishlist">Wishlist</Link>
           <Link to="/cart">Cart</Link>
-          <Link to="/login">Login</Link>
+          <Link to="/login">{isLoggedIn ? "Logout" : "Login"}</Link>
+          <Link to="/user">User</Link>
         </div>
       </nav>
     </>

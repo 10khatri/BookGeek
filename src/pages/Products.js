@@ -2,12 +2,11 @@ import React from "react";
 import { ProductContext } from "../context/ProductContext";
 export default function Products() {
   const { products } = React.useContext(ProductContext);
-  console.log(products);
   return (
     <div className="product-container">
       {products.map((product) => {
         return (
-          <div className="product">
+          <div key={product.id} className="product">
             <a
               class="book-container"
               href=""
