@@ -7,7 +7,7 @@ import { v4 as uuid } from "uuid";
 
 export const products = [
   {
-    id: 1,
+    _id: uuid(),
     author: "Bryan Stevenson",
     title: "Just Mercy",
     description:
@@ -25,7 +25,7 @@ export const products = [
     published: 2015,
   },
   {
-    id: 3,
+    _id: uuid(),
     author: "Ijeoma Oluo",
     title: "So You Want to Talk About Race",
     description:
@@ -34,7 +34,7 @@ export const products = [
     published: 2018,
   },
   {
-    id: 4,
+    _id: uuid(),
     author: "James Baldwin",
     title: "If Beale Street Could Talk",
     description:
@@ -43,7 +43,7 @@ export const products = [
     published: 1974,
   },
   {
-    id: 5,
+    _id: uuid(),
     author: "Angela Y. Davis",
     title: "Are Prisons Obsolete?",
     description:
@@ -52,7 +52,7 @@ export const products = [
     published: 2003,
   },
   {
-    id: 6,
+    _id: uuid(),
     author: "Octavia E. Butler",
     title: "Parable of the Sower",
     description:
@@ -61,7 +61,7 @@ export const products = [
     published: 1993,
   },
   {
-    id: 7,
+    _id: uuid(),
     author: "Ta-Nehisi Coates",
     title: "The Water Dancer",
     description:
@@ -70,7 +70,7 @@ export const products = [
     published: 2019,
   },
   {
-    id: 8,
+    _id: uuid(),
     author: "Malcolm X and Alex Haley",
     title: "The Autobiography of Malcolm X",
     description:
@@ -79,7 +79,7 @@ export const products = [
     published: 1965,
   },
   {
-    id: 9,
+    _id: uuid(),
     author: "Saeed Jones",
     title: "How We Fight for Our Lives",
     description:
@@ -88,7 +88,7 @@ export const products = [
     published: 2019,
   },
   {
-    id: 10,
+    _id: uuid(),
     author: "Glory Edim",
     title: "Well-Read Black Girl: Finding Our Stories, Discovering Ourselves",
     description:
@@ -97,7 +97,7 @@ export const products = [
     published: 2018,
   },
   {
-    id: 11,
+    _id: uuid(),
     author: "Maya Angelou",
     title: "I Know Why the Caged Bird Sings",
     description:
@@ -106,7 +106,7 @@ export const products = [
     published: 1969,
   },
   {
-    id: 12,
+    _id: uuid(),
     author: "Helen Oyeyemi",
     title: "Gingerbread",
     description:
@@ -115,7 +115,7 @@ export const products = [
     published: 2019,
   },
   {
-    id: 13,
+    _id: uuid(),
     author: "Audre Lorde",
     title: "Sister Outsider: Essays and Speeches",
     description:
@@ -124,7 +124,7 @@ export const products = [
     published: 1984,
   },
   {
-    id: 14,
+    _id: uuid(),
     author: "Nnedi Okorafor",
     title: "Who Fears Death",
     description:
@@ -133,7 +133,7 @@ export const products = [
     published: 2010,
   },
   {
-    id: 15,
+    _id: uuid(),
     author: "Ann Petry",
     title: "The Street",
     description:
@@ -142,7 +142,7 @@ export const products = [
     published: 1946,
   },
   {
-    id: 16,
+    _id: uuid(),
     author: "Octavia Butler",
     title: "Kindred",
     description:

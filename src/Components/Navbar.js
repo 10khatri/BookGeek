@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
+import { ProductContext } from "../context/ProductContext";
 export default function Navbar() {
-  const { isLoggedIn, setIsLoggedIn } = React.useContext(AuthContext);
+  const { isLoggedIn, setIsLoggedIn, set } = React.useContext(AuthContext);
+  const { products, setProducts, filteredProducts, setFilteredProducts } =
+    useContext(ProductContext);
 
+  function handleSearch(event) {
+    const searchTerm = event.target.value.toLowerCase();
+    const filtered = products.filter((product) =>
+      product.title.toLowerCase().includes(searchTerm)
+    );
+    setFilteredProducts(filtered);
+  }
   return (
     <>
       <nav>
@@ -13,7 +23,7 @@ export default function Navbar() {
           </Link>
         </div>
         <div className="nav-search-bar">
-          <input type="text" />
+          <input type="text" onChange={handleSearch} />
         </div>
         <div className="nav-links">
           <Link to="/products">All Products</Link>

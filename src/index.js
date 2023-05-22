@@ -5,15 +5,21 @@ import { makeServer } from "./server";
 import { BrowserRouter as Router } from "react-router-dom";
 import ProductContextProvider from "./context/ProductContext";
 import AuthContextProvider from "./context/AuthContext";
+import CartContextProvider from "./context/CartContext";
+import WishlistContextProvider from "./context/WishlistContext";
 // Call make Server
 makeServer();
 
 createRoot(document.getElementById("root")).render(
   <AuthContextProvider>
     <ProductContextProvider>
-      <Router>
-        <App />
-      </Router>
+      <CartContextProvider>
+        <WishlistContextProvider>
+          <Router>
+            <App />
+          </Router>
+        </WishlistContextProvider>
+      </CartContextProvider>
     </ProductContextProvider>
   </AuthContextProvider>
 );
