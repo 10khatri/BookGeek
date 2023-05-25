@@ -8,6 +8,7 @@ import Navbar from "./Components/Navbar";
 import User from "./pages/User";
 import "./App.css";
 import SignUp from "./pages/SignUp";
+import Individual from "./pages/Individual";
 import Login from "./pages/Login";
 import { Modal } from "./Components/Dialog";
 import { RequireAuth } from "./Components/RequireAuth";
@@ -25,6 +26,7 @@ export default function App() {
         <Route path="/mock" element={<Mockman />} />
         <Route path="/user" element={<User />} />
         <Route path="signup" element={<SignUp />} />
+        <Route path="products/:productId" element={<Individual />} />
         <Route
           path="/cart"
           element={

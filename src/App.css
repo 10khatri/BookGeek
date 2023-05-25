@@ -272,3 +272,27 @@ nav {
   border: 1px solid #666;
   padding: 8px 16px;
 }
+.individual-container {
+  display: flex;
+}
+
+.individual-product .desc {
+  font-size: 1.8rem;
+  margin-top: 3rem;
+  padding: 2rem;
+  background-color: #ffe581;
+}
+.individual-product {
+  display: flex;
+  gap: 3rem;
+}
+.individual-product .product-buttons {
+  display: block;
+
+  margin-left: 10px;
+  margin-top: 5rem;
+}
+.individual-product .product-buttons button {
+  margin-left: 20px;
+  margin-right: 20px;
+}

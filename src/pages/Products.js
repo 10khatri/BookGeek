@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { ProductContext } from "../context/ProductContext";
 import { CartContext } from "../context/CartContext";
 import { WishlistContext } from "../context/WishlistContext";
@@ -15,16 +16,13 @@ export default function Products() {
       {renderProducts.map((product) => {
         return (
           <div key={product.id} className="product">
-            <a
-              class="book-container"
-              href=""
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              <div class="book">
-                <img alt="" src={product.image} />
-              </div>
-            </a>
+            <Link to={`/products/${product.title}`}>
+              <a class="book-container" href="" rel="noreferrer noopener">
+                <div class="book">
+                  <img alt="" src={product.image} />
+                </div>
+              </a>
+            </Link>
             <div className="book-data">
               <h2>{product.title}</h2>
               <p>by {product.author}</p>
