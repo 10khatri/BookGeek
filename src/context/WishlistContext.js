@@ -43,6 +43,25 @@ export default function WishlistContextProvider({ children }) {
       console.log(error);
     }
   }
+  const deleteFromWishlist = async (productId) => {
+    try {
+      const response = await fetch(`/api/user/wishlist/${productId}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: localStorage.getItem("encodedToken"),
+        },
+      });
+
+      if (response.status === 200) {
+        setWishlistItems((prevItems) =>
+          prevItems.filter((item) => item._id !== productId)
+        );
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <WishlistContext.Provider
@@ -51,6 +70,7 @@ export default function WishlistContextProvider({ children }) {
         wishlistItems,
         setWishlistItems,
         fetchWishlistItems,
+        deleteFromWishlist,
       }}
     >
       {children}

@@ -1,6 +1,7 @@
 import React from "react";
 import { products } from "../backend/db/products";
 import Marquee from "react-fast-marquee";
+import { Link } from "react-router-dom";
 import "../App.css";
 import { ProductContext } from "../context/ProductContext";
 export default function Home() {
@@ -27,6 +28,9 @@ export default function Home() {
           );
         })}
       </Marquee>
+      <h1 style={{ textAlign: "center" }}>
+        Explore all our books here: <Link to="/products">All Books</Link>
+      </h1>
     </>
   );
 }

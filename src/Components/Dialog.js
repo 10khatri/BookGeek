@@ -1,96 +1,52 @@
-/*import { Dialog } from "@reach/dialog";
+import { Dialog } from "@reach/dialog";
 
 import React from "react";
 import "@reach/dialog/styles.css";
-
+import { CartContext } from "../context/CartContext";
 import { AuthContext } from "../context/AuthContext";
 
 export function Modal(props) {
-  const { setIsLoggedIn, setEncodedToken, isLoggedIn } =
-    React.useContext(AuthContext);
+  const { isCheckout } = React.useContext(CartContext);
+  const [showDialog, setShowDialog] = React.useState(isCheckout);
 
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
-  const [showDialog, setShowDialog] = React.useState(false);
-  console.log(props.isLoggedIn);
   const open = () => setShowDialog(true);
   const close = () => setShowDialog(false);
-  React.useEffect(() => {
-    setShowDialog(isLoggedIn); // Update showDialog whenever isLoggedIn changes
-  }, [isLoggedIn]);
-
-  function handleEmail(event) {
-    setEmail(event.target.value);
-  }
-  function handlePassword(event) {
-    setPassword(event.target.value);
-  }
-  async function Login() {
-    try {
-      let item = { email, password };
-      const response = await fetch("/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: "adarshbalika@gmail.com",
-          password: "adarshbalika",
-        }),
-      });
-      const result = await response.json();
-      console.log(result);
-      const { encodedToken } = result;
-      console.log(encodedToken);
-
-      localStorage.setItem("encodedToken", encodedToken);
-      setEncodedToken(encodedToken);
-      setIsLoggedIn(true);
-      close();
-    } catch (error) {
-      console.log(error);
-    }
-  }
 
   return (
-    <div className="asda">
+    <div>
       <div className="modal">
         <Dialog
           className="modal-form"
           style={{
+            marginTop: "10rem",
             position: "relative",
             borderRadius: "5px",
             width: "400px",
             height: "500px",
             padding: "3rem",
-            backgroundColor: "#ffe581",
+            backgroundColor: "white",
           }}
           isOpen={showDialog}
           onDismiss={close}
         >
-          <button
-            style={{
-              position: "absolute",
-              top: "-1.8rem",
-              right: "-1.1rem",
-              borderRadius: "50%",
-            }}
-            className="close-button"
-            onClick={close}
-          >
-            <span aria-hidden>×</span>
-          </button>
-          <h1>Log In</h1>
-          <div className="modal-form">
-            <label htmlFor="emial">Eamil Id</label>
-            <input id="email" type="text" onChange={handleEmail} />
-            <label htmlFor="password">Password</label>
-            <input id="password" type="password" onChange={handlePassword} />
-            <button onClick={Login}>Login</button>
+          <h1>Checkout Page</h1>
+          <div className="modal-content">
+            <br />
+            <br />
+            <h1 style={{ textAlign: "center" }}>
+              Arey you sure you want to checkout?
+            </h1>
+            <div className="product-buttons">
+              <button>
+                <span className="front">Yes</span>
+              </button>
+              <button>
+                <span className="front">No</span>
+              </button>
+            </div>
           </div>
         </Dialog>
       </div>
     </div>
   );
 }
-*/

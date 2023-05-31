@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import { WishlistContext } from "../context/WishlistContext";
 export default function Cart() {
-  const { wishlistItems, fetchWishlistItems } = useContext(WishlistContext);
+  const { wishlistItems, fetchWishlistItems, deleteFromWishlist } =
+    useContext(WishlistContext);
 
   React.useEffect(() => {
     fetchWishlistItems();
@@ -28,7 +29,11 @@ export default function Cart() {
                 <p>by {product.author}</p>
               </div>
               <div className="product-buttons">
-                <button>
+                <button
+                  onClick={() => {
+                    deleteFromWishlist(product._id);
+                  }}
+                >
                   <span class="front">Delete</span>
                 </button>
                 <button>

@@ -30,7 +30,7 @@ export default function Navbar() {
           <Link to="/wishlist">Wishlist</Link>
           <Link to="/cart">Cart</Link>
           <Link to="/login">{isLoggedIn ? "Logout" : "Login"}</Link>
-          <Link to="/user">User</Link>
+          {isLoggedIn && <Link to="/user">User</Link>}
         </div>
       </nav>
     </>

@@ -13,24 +13,19 @@ body {
   background-color: #a7e1f8;
 }
 .home-page-container {
-  height: 100vh;
+  height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .product-container {
-  /* display: flex;
-  justify-content: space-around;
-  align-items: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-  border: 1px solid black; */
   max-width: 1200px;
   padding-top: 100px;
   display: grid;
   grid-column-gap: 15px;
   grid-row-gap: 40px;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 }
 .product {
   display: flex;
@@ -58,14 +53,6 @@ body {
   width: 100%;
 }
 .product-buttons button {
-  /* cursor: pointer;
-  width: 85px;
-  border: none;
-  background-color: #fff0f0;
-  border-radius: 7px;
-  padding: 0.5rem;
-  transition: all 0.3s ease-in-out; */
-
   border-radius: 3px;
   border: 1px solid #b18597;
   width: 95px;
@@ -173,8 +160,8 @@ nav {
 }
 
 .book {
-  width: 200px;
-  height: 300px;
+  width: 150px;
+  height: 225px;
   position: relative;
   transform-style: preserve-3d;
   transform: rotateY(-30deg);
@@ -192,8 +179,8 @@ nav {
   top: 0;
   left: 0;
   background-color: red;
-  width: 200px;
-  height: 300px;
+  width: 150px;
+  height: 225px;
   transform: translateZ(25px);
   background-color: #01060f;
   border-radius: 0 2px 2px 0;
@@ -207,8 +194,8 @@ nav {
   left: 0;
   top: 3px;
   width: 48px;
-  height: 294px;
-  transform: translateX(172px) rotateY(90deg);
+  height: 219px;
+  transform: translateX(122px) rotateY(90deg);
   background: linear-gradient(
     90deg,
     #fff 0%,
@@ -240,8 +227,8 @@ nav {
   top: 0;
   left: 0;
   content: " ";
-  width: 200px;
-  height: 300px;
+  width: 150px;
+  height: 225px;
   transform: translateZ(-25px);
   background-color: #01060f;
   border-radius: 0 2px 2px 0;
@@ -295,4 +282,57 @@ nav {
 .individual-product .product-buttons button {
   margin-left: 20px;
   margin-right: 20px;
+}
+.cart-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* First column auto width, second column fixed width */
+
+  gap: 20px;
+  grid-auto-flow: row;
+}
+.checkout {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  width: 50%;
+  padding: 3rem;
+  padding-top: 10rem;
+  background-color: #ffe581;
+}
+.cart {
+  display: flex;
+  flex-direction: column;
+}
+.cart .product {
+  display: flex;
+}
+.cart-container .qty-button {
+  margin-top: 15px;
+}
+.cart-container .qty-button button {
+  padding: 5px;
+  margin: 5px 8px;
+}
+.checkout {
+  display: flex;
+  flex-direction: column;
+}
+.checkout .product-buttons {
+  width: 0;
+  padding-left: 3rem;
+}
+.checkout .product-buttons button {
+  width: 110px;
+}
+.product-outer {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-gap: 20px;
+}
+.product-outer .filter-method {
+  padding: 10px 30px;
+  padding-top: 10rem;
+
+  background-color: #ffe581;
 }
