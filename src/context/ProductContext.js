@@ -3,7 +3,7 @@ export const ProductContext = React.createContext();
 export default function ProductContextProvider({ children }) {
   const [products, setProducts] = React.useState([]);
 
-  const [filteredProducts, setFilteredProducts] = React.useState([]);
+  const [searchedProducts, setSearchedProducts] = React.useState("");
   React.useEffect(() => {
     const fetchData = async () => {
       try {
@@ -18,7 +18,7 @@ export default function ProductContextProvider({ children }) {
   }, []);
   return (
     <ProductContext.Provider
-      value={{ products, setProducts, filteredProducts, setFilteredProducts }}
+      value={{ products, setProducts, searchedProducts, setSearchedProducts }}
     >
       {children}
     </ProductContext.Provider>

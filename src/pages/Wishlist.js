@@ -10,7 +10,7 @@ export default function Cart() {
 
   return (
     <div>
-      <div className="product-container">
+      <div className="product-container wishlist">
         {wishlistItems.map((product) => {
           return (
             <div key={product.id} className="product">

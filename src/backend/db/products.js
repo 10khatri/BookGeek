@@ -14,7 +14,7 @@ export const products = [
       "Just Mercy is at once an unforgettable account of an idealistic, gifted young lawyer’s coming of age, a moving window into the lives of those he has defended, and an inspiring argument for compassion in the pursuit of true justice.",
     image: "https://imgur.com/gzVxoTl.png",
     published: 2014,
-    rating: 5.0,
+    rating: 3.0,
     price: 260,
     category: "fiction",
   },
@@ -57,7 +57,7 @@ export const products = [
   {
     _id: uuid(),
     author: "Angela Y. Davis",
-    title: "Are Prisons Obsolete?",
+    title: "Are Prisons Obsolete",
     description:
       "With her characteristic brilliance, grace and radical audacity, Angela Y. Davis has put the case for the latest abolition movement in American life: the abolition of the prison. As she quite correctly notes, American life is replete with abolition movements, and when they were engaged in these struggles, their chances of success seemed almost unthinkable. For generations of Americans, the abolition of slavery was sheerest illusion. Davis expertly argues how social movements transformed these social, political and cultural institutions, and made such practices untenable.",
     image: "https://images-na.ssl-images-amazon.com/images/I/71Sb-LtswpL.jpg",

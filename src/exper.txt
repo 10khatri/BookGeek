@@ -1,0 +1,235 @@
+
+// import React, { useContext, useEffect, useState } from "react";
+// import { Link } from "react-router-dom";
+// import { ProductContext } from "../context/ProductContext";
+// import { CartContext } from "../context/CartContext";
+// import { WishlistContext } from "../context/WishlistContext";
+
+// function reducer(state, action) {
+//   switch (action.type) {
+//     case "Input_SEARCH": {
+//       return { ...state, searchQuery: action.value };
+//     }
+//     case "SORT_BY": {
+//       if (action.value === "lowToHigh") {
+//         return { ...state, sortBy: action.value };
+//       }
+//       if (action.value === "highToLow") {
+//         return { ...state, sortBy: action.value };
+//       }
+//     }
+
+//     case "FILTER_BY_CATEGORY": {
+//       if (action.value === "fiction") {
+//         return { ...state, categories: "fiction" };
+//       }
+//       if (action.value === "non-fiction") {
+//         return { ...state, categories: "non-fiction" };
+//       }
+//       if (action.value === "horror") {
+//         return { ...state, categories: "horror" };
+//       }
+//     }
+//     case "PRICE_RANGE": {
+//       return { ...state, priceRange: action.value };
+//     }
+
+//     default: {
+//       return state;
+//     }
+//   }
+// }
+
+// export default function Products() {
+//   const { addToWishlist, wishlistItems, fetchWishlistItems } =
+//     useContext(WishlistContext);
+//   const { addToCart, cartItems, fetchCartItems } = useContext(CartContext);
+//   const { products, filteredProducts } = useContext(ProductContext);
+//   const [filterData, setFilterData] = React.useState([]);
+//   const initialState = {
+//     productData: products,
+//     searchQuery: null,
+//     sortBy: null,
+//     categories: null,
+//     priceRange: null,
+//   };
+//   const [state, dispatch] = React.useReducer(reducer, initialState);
+
+//   function handleInput(inputValue) {
+//     dispatch({ type: "Input_SEARCH", value: inputValue });
+//   }
+//   function handleCategory(categoryValue) {
+//     dispatch({ type: "FILTER_BY", value: categoryValue });
+//   }
+//   function handlePrice(priceValue) {
+//     dispatch({ type: "FILTER_BY", value: priceValue });
+//   }
+//   function handleSort(order) {
+//     dispatch({ type: "SORT_BY", value: order });
+//   }
+
+//   const renderProducts =
+//     filteredProducts.length > 0 ? filteredProducts : products;
+
+//   const [addedWishlist, setAddedWishlist] = useState([]);
+//   const [addedCart, setAddedCart] = useState([]);
+
+//   useEffect(() => {
+//     fetchWishlistItems();
+//     fetchCartItems();
+//   }, []);
+
+//   useEffect(() => {
+//     setAddedWishlist(wishlistItems.map((item) => item._id));
+//   }, [wishlistItems]);
+
+//   useEffect(() => {
+//     setAddedCart(cartItems.map((item) => item._id));
+//   }, [cartItems]);
+
+//   React.useEffect(() => {
+//     let filteredData = [...state.productData];
+//     if (state.searchQuery !== null) {
+//       filteredData = filteredData.filter((product) =>
+//         product.name.toLowerCase().includes(state.searchQuery.toLowerCase())
+//       );
+//     }
+//     if (state.includeInStock) {
+//       filteredData = filteredData.filter((product) => product.inStock);
+//     }
+//     if (state.fastDelivery) {
+//       filteredData = filteredData.filter((product) => product.fastDelivery);
+//     }
+//     if (state.sortBy === "lowToHigh") {
+//       filteredData = filteredData.sort(
+//         (a, b) => parseFloat(a.price) - parseFloat(b.price)
+//       );
+//     } else if (state.sortBy === "highToLow") {
+//       filteredData = filteredData.sort(
+//         (a, b) => parseFloat(b.price) - parseFloat(a.price)
+//       );
+//     }
+
+//     setFilterData(filteredData);
+//   }, [state]);
+
+//   const handleAddToWishlist = (product) => {
+//     addToWishlist(product);
+//     setAddedWishlist((prevAdded) => [...prevAdded, product._id]);
+//   };
+
+//   const isAddedToWishlist = (productId) => {
+//     return addedWishlist.includes(productId);
+//   };
+//   const handleAddToCart = (product) => {
+//     if (addedCart.includes(product._id)) {
+//       return;
+//     } else {
+//       addToCart(product);
+//       setAddedCart((prevAdded) => [...prevAdded, product._id]);
+//     }
+//   };
+
+//   const isAddedToCart = (productId) => {
+//     return addedCart.includes(productId);
+//   };
+
+//   return (
+//     <div className="product-outer">
+//       <div className="filter-method">
+//         <div>
+//           <label htmlFor="rating"> Rating </label>
+//           <select id="rating">
+//             <option value="one">1</option>
+//             <option value="two">2</option>
+//             <option value="three">3</option>
+//             <option value="four ">4</option>
+//             <option value="five">5</option>
+//           </select>
+//         </div>
+//         <div className="categories-input">
+//           <h3>categories</h3>
+//           <label htmlFor="all">All</label>
+//           <input type="checkbox" id="all" /> <br />
+//           <label htmlFor="fiction">Fiction</label>
+//           <input type="checkbox" id="fiction" value="fiction" /> <br />
+//           <label htmlFor="non-fiction" value="non-fiction">
+//             non-Fiction
+//           </label>
+//           <input type="checkbox" id="non-fiction" />
+//           <br />
+//           <label htmlFor="horror" value="horror">
+//             Horror
+//           </label>
+//           <input type="checkbox" id="horror" />
+//         </div>
+//         <div>
+//           <label htmlFor="low-to-high">price low to high</label>
+//           <input
+//             type="radio"
+//             id="low-to-high"
+//             name="sortby"
+//             value="lowToHigh"
+//           />
+//           <label htmlFor="high-to-low">price high to low</label>
+//           <input
+//             type="radio"
+//             id="high-to-low"
+//             name="sortby"
+//             value="highToLow"
+//           />
+//         </div>
+//         <div>
+//           <label htmlFor="price-range">Price Range:</label>
+//           <input type="range" min="0" max="500" id="price-range" />
+//         </div>
+//         <div />
+//       </div>
+//       <div className="product-container">
+//         {renderProducts.map((product) => {
+//           const isProductAdded = isAddedToWishlist(product._id);
+//           const isProductAddedToCart = isAddedToCart(product._id);
+//           return (
+//             <div key={product._id} className="product">
+//               <Link to={`/products/${product.title}`}>
+//                 <a className="book-container" href="" rel="noreferrer noopener">
+//                   <div className="book">
+//                     <img alt="" src={product.image} />
+//                   </div>
+//                 </a>
+//               </Link>
+//               <div className="book-data">
+//                 <h2>{product.title}</h2>
+//                 <p>by {product.author}</p>
+//                 <p>Price: {product.price}</p>
+//                 <p>Rating: {product.rating}</p>
+//               </div>
+//               <div className="product-buttons">
+//                 {isProductAddedToCart ? (
+//                   <button onClick={() => handleAddToCart(product)}>
+//                     <span className="front">
+//                       <Link to="/cart">Cart</Link>
+//                     </span>
+//                   </button>
+//                 ) : (
+//                   <button onClick={() => handleAddToCart(product)}>
+//                     <span className="front">Add</span>
+//                   </button>
+//                 )}
+
+//                 <button
+//                   onClick={() => handleAddToWishlist(product)}
+//                   disabled={isProductAdded}
+//                 >
+//                   <span className="front">
+//                     {isProductAdded ? "Added" : "Wishlist"}
+//                   </span>
+//                 </button>
+//               </div>
+//             </div>
+//           );
+//         })}
+//       </div>
+//     </div>
+//   );
+// }

@@ -4,15 +4,14 @@ import { AuthContext } from "../context/AuthContext";
 import { ProductContext } from "../context/ProductContext";
 export default function Navbar() {
   const { isLoggedIn, setIsLoggedIn, set } = React.useContext(AuthContext);
-  const { products, setProducts, filteredProducts, setFilteredProducts } =
-    useContext(ProductContext);
+  const { setSearchedProducts } = useContext(ProductContext);
 
   function handleSearch(event) {
     const searchTerm = event.target.value.toLowerCase();
-    const filtered = products.filter((product) =>
-      product.title.toLowerCase().includes(searchTerm)
-    );
-    setFilteredProducts(filtered);
+    // const filtered = products.filter((product) =>
+    //   product.title.toLowerCase().includes(searchTerm)
+    // );
+    setSearchedProducts(searchTerm);
   }
   return (
     <>
