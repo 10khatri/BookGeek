@@ -8,9 +8,7 @@ export default function Navbar() {
 
   function handleSearch(event) {
     const searchTerm = event.target.value.toLowerCase();
-    // const filtered = products.filter((product) =>
-    //   product.title.toLowerCase().includes(searchTerm)
-    // );
+
     setSearchedProducts(searchTerm);
   }
   return (
@@ -22,7 +20,12 @@ export default function Navbar() {
           </Link>
         </div>
         <div className="nav-search-bar">
-          <input type="text" onChange={handleSearch} />
+          <input
+            style={{ padding: "0 20px" }}
+            type="text"
+            placeholder="Search Books"
+            onChange={handleSearch}
+          />
         </div>
         <div className="nav-links">
           <Link to="/products">All Products</Link>

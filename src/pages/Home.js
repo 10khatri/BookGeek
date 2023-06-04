@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import "../App.css";
 import { ProductContext } from "../context/ProductContext";
 export default function Home() {
-  const { product } = React.useContext(ProductContext);
+  const { products } = React.useContext(ProductContext);
   return (
     <>
       <Marquee>

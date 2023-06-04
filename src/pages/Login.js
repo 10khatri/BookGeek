@@ -1,27 +1,34 @@
-import React from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
-  const location = useLocation();
   const navigate = useNavigate();
-  const { setIsLoggedIn, setEncodedToken, isLoggedIn, encodedToken, setUser } =
-    React.useContext(AuthContext);
-  const [isGuestLogin, setIsGuestLogin] = React.useState(false);
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
-
+  const { setIsLoggedIn, setEncodedToken } = useContext(AuthContext);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isGuestLogin, setIsGuestLogin] = useState(false);
+  useEffect(() => {
+    if (isGuestLogin) {
+      handleLogin();
+    }
+  }, [isGuestLogin]);
   function handleEmail(event) {
     setEmail(event.target.value);
   }
+
   function handlePassword(event) {
     setPassword(event.target.value);
   }
+
   function handleGuestLogin() {
+    setEmail("adarshbalika@gmail.com");
+    setPassword("adarshbalika");
     setIsGuestLogin(true);
     handleLogin();
   }
+
   async function handleLogin() {
     try {
       let item = { email, password };
@@ -30,34 +37,30 @@ export default function Login() {
           email: "adarshbalika@gmail.com",
           password: "adarshbalika",
         };
-        setEmail(item.email);
-        setPassword(item.password);
       }
+
       const response = await fetch("/api/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-
         body: JSON.stringify(item),
       });
 
       const result = await response.json();
-      console.log(result);
-      console.log(result.foundUser);
       const { encodedToken, status } = result;
 
       if (response.status === 200 || response.status === 201) {
         localStorage.setItem("encodedToken", encodedToken);
         setEncodedToken(encodedToken);
-
         setIsLoggedIn(true);
         navigate("/products");
       }
     } catch (error) {
-      console.log(error[0]);
+      console.log(error);
     }
   }
+
   return (
     <div>
       <div className="login-container">
@@ -84,15 +87,17 @@ export default function Login() {
           </button>
           <h1>Log In</h1>
           <div className="modal-form">
-            <label htmlFor="emial">Eamil Id</label>
+            <label htmlFor="email">Email Id</label>
             <input
+              required
               id="email"
-              type="text"
+              type="email"
               onChange={handleEmail}
               value={email}
             />
             <label htmlFor="password">Password</label>
             <input
+              required
               id="password"
               type="password"
               onChange={handlePassword}

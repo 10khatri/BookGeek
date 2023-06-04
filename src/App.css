@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans&display=swap");
 * {
-  line-height: 1.3;
+  line-height: 1;
   letter-spacing: 2px;
   margin: 0;
   padding: 0;
@@ -348,7 +348,7 @@ nav {
   left: 0;
   bottom: 0;
   width: 250px;
-  background-color: #ffe476;
+  background-color: #d9d6d1;
 }
 .product-outer .filter-method div {
   margin-bottom: 40px;
@@ -356,4 +356,7 @@ nav {
 .product-outer .filter-method .categories-input input {
   margin: 13px 0;
   padding-left: 10px;
+}
+.product-outer .filter-method .clear-button button {
+  padding: 3px 5px;
 }

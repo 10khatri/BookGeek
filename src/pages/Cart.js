@@ -1,6 +1,11 @@
 import React, { useContext, useState, useEffect } from "react";
 import { CartContext } from "../context/CartContext";
+import { ToastContainer, toast } from "react-toastify";
+import { Link } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
 import { Modal } from "../Components/Dialog";
+import { WishlistContext } from "../context/WishlistContext";
+
 export default function Cart() {
   const {
     cartItems,
@@ -10,6 +15,8 @@ export default function Cart() {
     isCheckout,
     setIsCheckout,
   } = useContext(CartContext);
+  const { addToWishlist, wishlistItems } = useContext(WishlistContext);
+
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
@@ -20,6 +27,11 @@ export default function Cart() {
     calculateTotalPrice();
   }, [cartItems]);
 
+  const handleDelete = (productId) => {
+    removeFromCart(productId);
+    toast.success("Item deleted from cart");
+  };
+
   const calculateTotalPrice = () => {
     let totalPrice = 0;
     cartItems.forEach((product) => {
@@ -27,12 +39,30 @@ export default function Cart() {
     });
     setTotalPrice(totalPrice);
   };
+
   const handleCheckout = () => {
-    setIsCheckout(true);
+    if (cartItems.length === 0) {
+      toast.error("Cart is empty");
+    } else {
+      setIsCheckout(true);
+    }
   };
 
   const closeModal = () => {
     setIsCheckout(false);
+  };
+
+  const handleWishlist = (product) => {
+    const isAlreadyInWishlist = wishlistItems.some(
+      (item) => item._id === product._id
+    );
+
+    if (isAlreadyInWishlist) {
+      return;
+    } else {
+      addToWishlist(product);
+      toast.success("Item added to wishlist");
+    }
   };
 
   return (
@@ -44,13 +74,23 @@ export default function Cart() {
       ) : (
         <div style={{ marginLeft: "0px" }} className="product-container cart">
           {cartItems.map((product, index) => {
+            const isItemInWishlist = wishlistItems.some(
+              (item) => item._id === product._id
+            );
+
             return (
               <div key={`${product._id}-${index}`} className="product">
-                <a className="book-container" href="" rel="noreferrer noopener">
-                  <div className="book">
-                    <img alt="" src={product.image} />
-                  </div>
-                </a>
+                <Link to={`/products/${product.title}`}>
+                  <a
+                    className="book-container"
+                    href=""
+                    rel="noreferrer noopener"
+                  >
+                    <div className="book">
+                      <img alt="" src={product.image} />
+                    </div>
+                  </a>
+                </Link>
                 <div className="book-data">
                   <h2>{product.title}</h2>
                   <p>by {product.author}</p>
@@ -58,13 +98,20 @@ export default function Cart() {
                 <div className="product-buttons">
                   <button
                     onClick={() => {
-                      removeFromCart(product._id);
+                      handleDelete(product._id);
                     }}
                   >
                     <span className="front">Delete</span>
                   </button>
-                  <button>
-                    <span className="front">wishlist</span>
+                  <button
+                    disabled={isItemInWishlist}
+                    onClick={() => {
+                      handleWishlist(product);
+                    }}
+                  >
+                    <span className="front">
+                      {isItemInWishlist ? "Added " : "Wishlist"}
+                    </span>
                   </button>
                 </div>
                 <div className="qty-button">
@@ -103,6 +150,7 @@ export default function Cart() {
         </div>
       </div>
       {isCheckout && <Modal closeModal={closeModal} />}
+      <ToastContainer position="bottom-right" />
     </div>
   );
 }

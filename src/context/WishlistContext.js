@@ -15,9 +15,10 @@ export default function WishlistContextProvider({ children }) {
         },
       });
       const result = await response.json();
-      console.log(result.wishlist);
+
       if (response.status === 200) {
         setWishlistItems(result.wishlist);
+        fetchWishlistItems();
       }
     } catch (error) {
       console.log(error);

@@ -5,6 +5,7 @@ export const CartContext = React.createContext();
 export default function CartContextProvider({ children }) {
   const [cartItems, setCartItems] = React.useState([]);
   const [isCheckout, setIsCheckout] = React.useState(false);
+
   const fetchCartItems = async () => {
     try {
       const response = await fetch("/api/user/cart", {
@@ -18,6 +19,7 @@ export default function CartContextProvider({ children }) {
 
       if (response.status === 200) {
         setCartItems(result.cart);
+        fetchCartItems();
       }
     } catch (error) {
       console.log(error);

@@ -1,40 +1,50 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function SignUp() {
-  const location = useLocation();
   const navigate = useNavigate();
-  const { setIsLoggedIn, setEncodedToken, isLoggedIn, setUser, user } =
-    React.useContext(AuthContext);
-  const [userName, setUserName] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
+  const { setIsLoggedIn, setEncodedToken, setUser } = useContext(AuthContext);
+  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [emailError, setEmailError] = useState("");
 
   function handleUserName(event) {
     setUserName(event.target.value);
   }
+
   function handleEmail(event) {
     setEmail(event.target.value);
+    setEmailError("");
   }
+
   function handlePassword(event) {
     setPassword(event.target.value);
   }
 
+  function validateEmail(email) {
+    // Regular expression to validate email format
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
+  }
+
   async function signUp() {
     try {
-      let item = { userName, email, password };
+      if (!validateEmail(email)) {
+        setEmailError("Invalid email format");
+        return;
+      }
+
+      const item = { userName, email, password };
       const response = await fetch("/api/auth/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        // body: JSON.stringify({
-        //   email: "adarshbalika@gmail.com",
-        //   password: "adarshbalika",
-        // }),
         body: JSON.stringify(item),
       });
+
       const result = await response.json();
       console.log(result.createdUser);
       const { encodedToken } = result;
@@ -50,6 +60,7 @@ export default function SignUp() {
       console.log(error.message[0]);
     }
   }
+
   return (
     <div>
       <div className="login-container">
@@ -78,26 +89,30 @@ export default function SignUp() {
           <div className="modal-form">
             <label htmlFor="username">User Name</label>
             <input
+              required
               id="username"
               type="text"
               onChange={handleUserName}
               value={userName}
             />
-            <label htmlFor="emial">Eamil Id</label>
+            <label htmlFor="email">Email Id</label>
             <input
+              required
               id="email"
               type="text"
               onChange={handleEmail}
               value={email}
             />
+            {emailError && <p className="error">{emailError}</p>}
             <label htmlFor="password">Password</label>
             <input
               id="password"
+              required
               type="password"
               onChange={handlePassword}
               value={password}
             />
-            <button onClick={signUp}>sign up</button>
+            <button onClick={signUp}>Sign Up</button>
           </div>
         </div>
       </div>
