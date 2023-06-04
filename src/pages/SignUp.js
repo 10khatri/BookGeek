@@ -85,6 +85,7 @@ export default function SignUp() {
           >
             <span aria-hidden>×</span>
           </button>
+
           <h1>Sign up</h1>
           <div className="modal-form">
             <label htmlFor="username">User Name</label>
