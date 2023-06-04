@@ -13,8 +13,6 @@ import SignUp from "./pages/SignUp";
 import Individual from "./pages/Individual";
 import Login from "./pages/Login";
 import { RequireAuth } from "./Components/RequireAuth";
-
-import Mockman from "mockman-js";
 export default function App() {
   return (
     <>
@@ -24,7 +22,6 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
         <Route path="/wishlist" element={<Wishlist />} />
-        <Route path="/mock" element={<Mockman />} />
         <Route path="/user" element={<User />} />
         <Route path="signup" element={<SignUp />} />
         <Route path="products/:productId" element={<Individual />} />
