@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { ProductContext } from "../context/ProductContext";
 export default function Navbar() {
-  const { isLoggedIn, setIsLoggedIn, set } = React.useContext(AuthContext);
+  const { isLoggedIn } = React.useContext(AuthContext);
   const { setSearchedProducts } = useContext(ProductContext);
 
   function handleSearch(event) {

@@ -3,8 +3,8 @@ import { Routes, Route } from "react-router-dom";
 import Cart from "./pages/Cart";
 import Home from "./pages/Home";
 import Wishlist from "./pages/Wishlist";
-import { ToastContainer, toast } from "react-toastify";
 
+import "react-toastify/dist/ReactToastify.css";
 import Products from "./pages/Products";
 import Navbar from "./Components/Navbar";
 import User from "./pages/User";
@@ -12,7 +12,6 @@ import "./App.css";
 import SignUp from "./pages/SignUp";
 import Individual from "./pages/Individual";
 import Login from "./pages/Login";
-import { Modal } from "./Components/Dialog";
 import { RequireAuth } from "./Components/RequireAuth";
 
 import Mockman from "mockman-js";
