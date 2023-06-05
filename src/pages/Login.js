@@ -13,7 +13,8 @@ export default function Login() {
     if (isGuestLogin) {
       handleLogin();
     }
-  }, [isGuestLogin, handleLogin]); //handle login added
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isGuestLogin]);
 
   function handleEmail(event) {
     setEmail(event.target.value);

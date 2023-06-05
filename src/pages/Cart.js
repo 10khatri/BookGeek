@@ -42,7 +42,8 @@ export default function Cart() {
   };
   useEffect(() => {
     calculateTotalPrice();
-  }, [cartItems, calculateTotalPrice]); //added calculated price
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [cartItems]);
 
   const handleCheckout = () => {
     if (cartItems.length === 0) {
