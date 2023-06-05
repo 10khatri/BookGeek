@@ -39,7 +39,7 @@ export default function CartContextProvider({ children }) {
       const result = await response.json();
 
       if (response.status === 200) {
-        setCartItems((prevItems) => [...prevItems, result]);
+        setCartItems((prevItems) => [...prevItems, result.cart]);
       }
     } catch (error) {
       console.log(error);

@@ -38,7 +38,7 @@ export default function WishlistContextProvider({ children }) {
       const result = await response.json();
 
       if (response.status === 200) {
-        setWishlistItems((prevItems) => [...prevItems, result]);
+        setWishlistItems((prevItems) => [...prevItems, result.wishlist]);
       }
     } catch (error) {
       console.log(error);
