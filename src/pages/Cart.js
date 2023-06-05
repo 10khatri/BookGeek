@@ -28,10 +28,6 @@ export default function Cart() {
     fetchCartItems();
   }, [fetchWishlistItems, fetchCartItems]);
 
-  useEffect(() => {
-    calculateTotalPrice();
-  }, [cartItems]);
-
   const handleDelete = (productId) => {
     removeFromCart(productId);
     toast.success("Item deleted from cart");
@@ -44,6 +40,9 @@ export default function Cart() {
     });
     setTotalPrice(totalPrice);
   };
+  useEffect(() => {
+    calculateTotalPrice();
+  }, [cartItems, calculateTotalPrice]); //added calculated price
 
   const handleCheckout = () => {
     if (cartItems.length === 0) {
