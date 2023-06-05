@@ -4,7 +4,6 @@ import { ToastContainer, toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { Dialog } from "../Components/Dialog";
-
 import { WishlistContext } from "../context/WishlistContext";
 
 export default function Cart() {
