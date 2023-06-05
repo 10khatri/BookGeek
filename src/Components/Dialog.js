@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Dialog } from "@reach/dialog";
+import "@reach/dialog/styles.css";
 import { CartContext } from "../context/CartContext";
 
 export function Modal(props) {

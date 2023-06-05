@@ -4,6 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { Modal } from "../Components/Dialog";
+import "@reach/dialog/styles.css";
 import { WishlistContext } from "../context/WishlistContext";
 
 export default function Cart() {
