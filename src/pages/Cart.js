@@ -3,8 +3,8 @@ import { CartContext } from "../context/CartContext";
 import { ToastContainer, toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
-import { Modal } from "../Components/Dialog";
-import "@reach/dialog/styles.css";
+import { Dialog } from "../Components/Dialog";
+
 import { WishlistContext } from "../context/WishlistContext";
 
 export default function Cart() {
@@ -150,7 +150,7 @@ export default function Cart() {
           </button>
         </div>
       </div>
-      {isCheckout && <Modal closeModal={closeModal} />}
+      {isCheckout && <Dialog closeModal={closeModal} />}
       <ToastContainer position="bottom-right" />
     </div>
   );
