@@ -9,6 +9,7 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isGuestLogin, setIsGuestLogin] = useState(false);
+
   useEffect(() => {
     if (isGuestLogin) {
       handleLogin();
