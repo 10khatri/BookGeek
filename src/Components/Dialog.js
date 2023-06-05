@@ -8,9 +8,9 @@ export function Dialog(props) {
   const [showModal, setShowModal] = useState(isCheckout);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
-  const openModal = () => {
-    setShowModal(true);
-  };
+  // const openModal = () => {
+  //   setShowModal(true);
+  // };
 
   const closeModal = () => {
     setShowModal(false);
