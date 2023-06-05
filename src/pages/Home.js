@@ -1,5 +1,4 @@
 import React from "react";
-import { products } from "../backend/db/products";
 import Marquee from "react-fast-marquee";
 import { Link } from "react-router-dom";
 import "../App.css";
@@ -14,11 +13,7 @@ export default function Home() {
             <div style={{ margin: "0 30px" }} className="home-page-container">
               <div>
                 <Link to={`/products/${product.title}`}>
-                  <a
-                    className="book-container"
-                    href=""
-                    rel="noreferrer noopener"
-                  >
+                  <a className="book-container">
                     <div className="book">
                       <img alt="" src={product.image} />
                     </div>

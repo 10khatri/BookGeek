@@ -48,7 +48,7 @@ export default function Login() {
       });
 
       const result = await response.json();
-      const { encodedToken, status } = result;
+      const { encodedToken } = result;
 
       if (response.status === 200 || response.status === 201) {
         localStorage.setItem("encodedToken", encodedToken);

@@ -10,7 +10,6 @@ import { CartContext } from "../context/CartContext";
 import { WishlistContext } from "../context/WishlistContext";
 
 export default function Products() {
-  const [render, setrender] = React.useState(0);
   const { addToWishlist, wishlistItems, fetchWishlistItems } =
     useContext(WishlistContext);
   const { addToCart, cartItems, fetchCartItems } = useContext(CartContext);

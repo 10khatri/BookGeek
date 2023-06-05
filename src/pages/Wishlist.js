@@ -45,11 +45,7 @@ export default function Cart() {
               return (
                 <div key={product.id} className="product">
                   <Link to={`/products/${product.title}`}>
-                    <a
-                      className="book-container"
-                      href=""
-                      rel="noreferrer noopener"
-                    >
+                    <a className="book-container">
                       <div className="book">
                         <img alt="" src={product.image} />
                       </div>
