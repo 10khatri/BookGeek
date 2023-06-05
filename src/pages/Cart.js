@@ -81,7 +81,7 @@ export default function Cart() {
             return (
               <div key={`${product._id}-${index}`} className="product">
                 <Link to={`/products/${product.title}`}>
-                  <a
+                  <button
                     className="book-container"
                     href=""
                     rel="noreferrer noopener"
@@ -89,7 +89,7 @@ export default function Cart() {
                     <div className="book">
                       <img alt="" src={product.image} />
                     </div>
-                  </a>
+                  </button>
                 </Link>
                 <div className="book-data">
                   <h2>{product.title}</h2>

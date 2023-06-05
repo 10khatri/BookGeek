@@ -13,11 +13,11 @@ export default function Home() {
             <div style={{ margin: "0 30px" }} className="home-page-container">
               <div>
                 <Link to={`/products/${product.title}`}>
-                  <a className="book-container">
+                  <button className="book-container">
                     <div className="book">
                       <img alt="" src={product.image} />
                     </div>
-                  </a>
+                  </button>
                 </Link>
               </div>
             </div>

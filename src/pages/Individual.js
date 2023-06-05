@@ -50,11 +50,11 @@ export default function Individual() {
           return (
             <div className="individual-product" key={product._id}>
               <div className="product">
-                <a className="book-container">
+                <button className="book-container">
                   <div className="book">
                     <img alt="" src={product.image} />
                   </div>
-                </a>
+                </button>
 
                 <div className="book-data">
                   <h2>{product.title}</h2>

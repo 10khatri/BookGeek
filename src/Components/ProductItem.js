@@ -11,11 +11,11 @@ const ProductItem = ({
   return (
     <div key={product._id} className="product">
       <Link to={`/products/${product.title}`}>
-        <a className="book-container">
+        <button className="book-container">
           <div className="book">
             <img alt="" src={product.image} />
           </div>
-        </a>
+        </button>
       </Link>
       <div className="book-data">
         <h2>{product.title}</h2>

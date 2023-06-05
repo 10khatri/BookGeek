@@ -145,6 +145,13 @@ nav {
 }
 
 .book-container {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
   padding-top: 3rem;
   display: flex;
   align-items: center;
