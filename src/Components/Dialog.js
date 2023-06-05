@@ -1,11 +1,9 @@
 import React, { useContext } from "react";
 import { Dialog } from "@reach/dialog";
-import "@reach/dialog/styles.css";
 import { CartContext } from "../context/CartContext";
-import { AuthContext } from "../context/AuthContext";
 
 export function Modal(props) {
-  const { isCheckout, setIsCheckout, setCartItems } = useContext(CartContext);
+  const { isCheckout, setIsCheckout } = useContext(CartContext);
   const [showDialog, setShowDialog] = React.useState(isCheckout);
   const [showSuccessMessage, setShowSuccessMessage] = React.useState(false);
 
@@ -26,8 +24,10 @@ export function Modal(props) {
         <Dialog
           className="modal-form"
           style={{
-            marginTop: "10rem",
-            position: "relative",
+            position: "fixed",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
             borderRadius: "5px",
             width: "400px",
             height: "500px",
