@@ -30,7 +30,7 @@ export default function Products() {
   useEffect(() => {
     fetchWishlistItems();
     fetchCartItems();
-  }, []);
+  }, [fetchWishlistItems, fetchCartItems]);
 
   useEffect(() => {
     dispatch({ type: "Input_SEARCH", value: searchedProducts });

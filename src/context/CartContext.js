@@ -19,7 +19,7 @@ export default function CartContextProvider({ children }) {
 
       if (response.status === 200) {
         setCartItems(result.cart);
-        fetchCartItems();
+        // fetchCartItems(); original
       }
     } catch (error) {
       console.log(error);
@@ -39,7 +39,7 @@ export default function CartContextProvider({ children }) {
       const result = await response.json();
 
       if (response.status === 200) {
-        setCartItems((prevItems) => [...prevItems, result.cart]);
+        setCartItems((prevItems) => [...prevItems, result]);
       }
     } catch (error) {
       console.log(error);

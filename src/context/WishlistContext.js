@@ -18,7 +18,7 @@ export default function WishlistContextProvider({ children }) {
 
       if (response.status === 200) {
         setWishlistItems(result.wishlist);
-        fetchWishlistItems();
+        // fetchWishlistItems(); original
       }
     } catch (error) {
       console.log(error);
@@ -36,9 +36,9 @@ export default function WishlistContextProvider({ children }) {
         body: JSON.stringify({ product }),
       });
       const result = await response.json();
-      console.log(result.wishlist);
+
       if (response.status === 200) {
-        setWishlistItems((prevItems) => [...prevItems, result.wishlist]);
+        setWishlistItems((prevItems) => [...prevItems, result]);
       }
     } catch (error) {
       console.log(error);

@@ -2,8 +2,8 @@ import { useState } from "react";
 import RingLoader from "react-spinners/RingLoader";
 
 function Spinner() {
-  const [loading, setLoading] = useState(true);
-  const [color, setColor] = useState("#ffe581");
+  const [loading] = useState(true);
+  const [color] = useState("#ffe581");
 
   return (
     <div

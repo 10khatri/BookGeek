@@ -15,13 +15,18 @@ export default function Cart() {
     isCheckout,
     setIsCheckout,
   } = useContext(CartContext);
-  const { addToWishlist, wishlistItems } = useContext(WishlistContext);
+  const { addToWishlist, wishlistItems, fetchWishlistItems } =
+    useContext(WishlistContext);
 
   const [totalPrice, setTotalPrice] = useState(0);
 
-  useEffect(() => {
+  // useEffect(() => {
+  //   fetchCartItems();
+  // }, []);
+  React.useEffect(() => {
+    fetchWishlistItems();
     fetchCartItems();
-  }, []);
+  }, [fetchWishlistItems, fetchCartItems]);
 
   useEffect(() => {
     calculateTotalPrice();

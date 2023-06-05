@@ -13,7 +13,7 @@ export default function Login() {
     if (isGuestLogin) {
       handleLogin();
     }
-  }, [isGuestLogin]);
+  }, [isGuestLogin, handleLogin]); //added handlelogin
   function handleEmail(event) {
     setEmail(event.target.value);
   }

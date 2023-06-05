@@ -8,13 +8,18 @@ import { WishlistContext } from "../context/WishlistContext";
 import { ProductContext } from "../context/ProductContext";
 
 export default function Individual() {
-  const { addToWishlist, wishlistItems } = useContext(WishlistContext);
-  const { addToCart, cartItems } = useContext(CartContext);
+  const { addToWishlist, wishlistItems, fetchWishlistItems } =
+    useContext(WishlistContext);
+  const { addToCart, cartItems, fetchCartItems } = useContext(CartContext);
   const { productId } = useParams();
   const { products } = useContext(ProductContext);
   const productToRender = products.filter((p) => p.title === productId);
   const addedWishlist = wishlistItems.map((item) => item._id);
   const addedCart = cartItems.map((item) => item._id);
+  React.useEffect(() => {
+    fetchWishlistItems();
+    fetchCartItems();
+  }, [fetchWishlistItems, fetchCartItems]);
 
   function handleCart(product) {
     if (addedCart.includes(product._id)) {

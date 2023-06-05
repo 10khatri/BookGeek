@@ -6,13 +6,20 @@ import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
 
 export default function Cart() {
-  const { addToCart, cartItems } = useContext(CartContext);
+  const { addToCart, cartItems, fetchCartItems } = useContext(CartContext);
   const { wishlistItems, fetchWishlistItems, deleteFromWishlist } =
     useContext(WishlistContext);
 
+  // React.useEffect(() => {
+  //   fetchCartItems();
+  // }, [fetchCartItems]);
+  // React.useEffect(() => {
+  //   fetchWishlistItems();
+  // }, []);
   React.useEffect(() => {
     fetchWishlistItems();
-  }, []);
+    fetchCartItems();
+  }, [fetchWishlistItems, fetchCartItems]);
 
   const handleDeleteFromWishlist = (productId) => {
     deleteFromWishlist(productId);
