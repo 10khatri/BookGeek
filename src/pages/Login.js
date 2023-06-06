@@ -52,10 +52,9 @@ export default function Login() {
 
       const result = await response.json();
       const { encodedToken } = result;
-
+      setEncodedToken(encodedToken);
+      localStorage.setItem("encodedToken", encodedToken);
       if (response.status === 200 || response.status === 201) {
-        localStorage.setItem("encodedToken", encodedToken);
-        setEncodedToken(encodedToken);
         setIsLoggedIn(true);
         navigate("/products");
       }

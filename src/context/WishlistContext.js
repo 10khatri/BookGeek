@@ -4,7 +4,7 @@ export const WishlistContext = React.createContext();
 
 export default function WishlistContextProvider({ children }) {
   const [wishlistItems, setWishlistItems] = React.useState([]);
-  console.log(wishlistItems);
+
   const fetchWishlistItems = async () => {
     try {
       const response = await fetch("/api/user/wishlist", {
