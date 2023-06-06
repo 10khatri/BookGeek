@@ -271,7 +271,7 @@ nav {
 }
 .cart-container {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* First column auto width, second column fixed width */
+  grid-template-columns: 1fr 1fr;
 
   gap: 20px;
   grid-auto-flow: row;
@@ -355,7 +355,7 @@ nav {
 .address input {
   margin-top: 10px;
 }
-@media (max-width: 1100px) {
+@media (max-width: 1000px) {
   .product-container {
     grid-column-gap: 8px;
     grid-row-gap: 20px;
@@ -375,10 +375,10 @@ nav {
     margin-right: 17px;
   }
   .product {
-    width: 400px;
+    width: 282px;
   }
 }
-@media (max-width: 890px) {
+@media (max-width: 700px) {
   .product-container {
     grid-column-gap: 4px;
     grid-row-gap: 10px;
@@ -389,7 +389,7 @@ nav {
     padding: 10px 5px;
   }
   .product {
-    width: 200px;
+    width: 300px;
   }
   .nav-search-bar input {
     width: 200px;

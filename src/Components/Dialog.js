@@ -31,6 +31,7 @@ export function Dialog(props) {
       <div className="modal">
         <Modal
           isOpen={showModal}
+          shouldCloseOnOverlayClick={false}
           onRequestClose={closeModal}
           contentLabel="Modal"
           style={{
