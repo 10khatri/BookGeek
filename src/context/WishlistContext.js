@@ -18,7 +18,7 @@ export default function WishlistContextProvider({ children }) {
 
       if (response.status === 200) {
         setWishlistItems(result.wishlist);
-        console.log(result);
+
         // fetchWishlistItems(); original
       }
     } catch (error) {
