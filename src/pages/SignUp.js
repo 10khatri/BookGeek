@@ -48,7 +48,8 @@ export default function SignUp() {
       const result = await response.json();
       console.log(result.createdUser);
       const { encodedToken } = result;
-      console.log(encodedToken);
+      console.log(result);
+      console.log(response);
 
       setUser({ email: email, name: userName });
       localStorage.setItem("user", JSON.stringify(item));

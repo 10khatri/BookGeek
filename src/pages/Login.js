@@ -52,7 +52,7 @@ export default function Login() {
 
       const result = await response.json();
       const { encodedToken } = result;
-      console.log(encodedToken);
+      console.log(result);
 
       if (response.status === 200 || response.status === 201) {
         setEncodedToken(encodedToken);
