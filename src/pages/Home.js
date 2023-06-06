@@ -6,7 +6,7 @@ import { ProductContext } from "../context/ProductContext";
 export default function Home() {
   const { products } = React.useContext(ProductContext);
   return (
-    <>
+    <div className="home">
       <Marquee>
         {products.map((product) => {
           return (
@@ -27,6 +27,6 @@ export default function Home() {
       <h1 style={{ textAlign: "center" }}>
         Explore all our books here: <Link to="/products">All Books</Link>
       </h1>
-    </>
+    </div>
   );
 }

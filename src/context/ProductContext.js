@@ -12,6 +12,7 @@ export default function ProductContextProvider({ children }) {
         const data = await res.json();
         setProducts(data.products);
         setIsLoading(false);
+        console.log(data);
       } catch (error) {
         console.log(error);
       }
