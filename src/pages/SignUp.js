@@ -47,7 +47,8 @@ export default function SignUp() {
 
       const result = await response.json();
       console.log(result.createdUser);
-      const { encodedToken } = result;
+      const { encodedToken } = result.data;
+      // const { encodedToken } = result;
       console.log(result);
       console.log(response);
 
