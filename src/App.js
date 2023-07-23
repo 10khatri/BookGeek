@@ -3,7 +3,6 @@ import { Routes, Route } from "react-router-dom";
 import Cart from "./pages/Cart";
 import Home from "./pages/Home";
 import Wishlist from "./pages/Wishlist";
-
 import "react-toastify/dist/ReactToastify.css";
 import Products from "./pages/Products";
 import Navbar from "./Components/Navbar";

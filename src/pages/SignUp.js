@@ -24,7 +24,6 @@ export default function SignUp() {
   }
 
   function validateEmail(email) {
-    // Regular expression to validate email format
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailPattern.test(email);
   }
@@ -47,12 +46,9 @@ export default function SignUp() {
 
       const result = await response.json();
       const { encodedToken } = result;
-      console.log(result);
-
-      console.log(encodedToken);
 
       setUser({ email: email, name: userName });
-      localStorage.setItem("user", JSON.stringify(item));
+      localStorage.setItem("user", JSON.stringify(result.createdUser));
       localStorage.setItem("encodedToken", encodedToken);
       setEncodedToken(encodedToken);
 

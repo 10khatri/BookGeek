@@ -4,7 +4,7 @@ export const WishlistContext = React.createContext();
 
 export default function WishlistContextProvider({ children }) {
   const [wishlistItems, setWishlistItems] = React.useState([]);
-
+  console.log(wishlistItems);
   const fetchWishlistItems = async () => {
     try {
       const response = await fetch("/api/user/wishlist", {
@@ -18,8 +18,6 @@ export default function WishlistContextProvider({ children }) {
 
       if (response.status === 200) {
         setWishlistItems(result.wishlist);
-
-        // fetchWishlistItems(); original
       }
     } catch (error) {
       console.log(error);
@@ -45,6 +43,7 @@ export default function WishlistContextProvider({ children }) {
       console.log(error);
     }
   }
+
   const deleteFromWishlist = async (productId) => {
     try {
       const response = await fetch(`/api/user/wishlist/${productId}`, {

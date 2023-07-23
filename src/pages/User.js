@@ -1,8 +1,6 @@
-import React, { useState } from "react";
-import { AuthContext } from "../context/AuthContext";
-
+import { useState } from "react";
 export default function User() {
-  const { user } = React.useContext(AuthContext);
+  const user = JSON.parse(window.localStorage.getItem("user"));
   const [address, setAddress] = useState(null);
   const [street, setStreet] = useState("");
   const [city, setCity] = useState("");
@@ -30,7 +28,7 @@ export default function User() {
 
   return (
     <div style={{ padding: "10rem" }}>
-      <h1>Welcome {user.name}</h1>
+      <h1>welcome {user.userName || user.name}</h1>
       <h1 style={{ paddingTop: "15px" }}>Email {user.email}</h1>
 
       {address ? (

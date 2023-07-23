@@ -14,7 +14,6 @@ export default function Login() {
     if (isGuestLogin) {
       handleLogin();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isGuestLogin]);
 
   function handleEmail(event) {
@@ -52,11 +51,10 @@ export default function Login() {
 
       const result = await response.json();
       const { encodedToken } = result;
-      console.log(result);
-
       if (response.status === 200 || response.status === 201) {
-        setEncodedToken(encodedToken);
         localStorage.setItem("encodedToken", encodedToken);
+        setEncodedToken(encodedToken);
+        localStorage.setItem("user", JSON.stringify(result.foundUser));
         setIsLoggedIn(true);
         navigate("/products");
       }
