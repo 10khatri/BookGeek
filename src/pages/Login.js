@@ -14,6 +14,7 @@ export default function Login() {
     if (isGuestLogin) {
       handleLogin();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isGuestLogin]);
 
   function handleEmail(event) {
